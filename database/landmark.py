@@ -18,10 +18,7 @@ class Landmark(Base):
     history_refs = relationship("HistoricalReference", backref="landmark")
 
     # Relationship to the LandmarkCategory junction table
-    categories = relationship("LandmarkCategory", back_populates="landmark")
-
-    # Access to the actual Category objects
-    category_list = relationship("Category", secondary="landmark_categories", back_populates="landmarks")
+    categories = relationship("Category", secondary="landmark_categories", back_populates="landmarks")
 
     def __repr__(self):
         return f"<Landmark(id={self.id}, name='{self.name}', descr='{self.descr}', history={self.history})>"

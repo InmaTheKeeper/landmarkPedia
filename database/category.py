@@ -10,10 +10,8 @@ class Category(Base):
     name = Column(VARCHAR, nullable=False)
 
     # Relationship to the LandmarkCategory junction table
-    landmarks = relationship("LandmarkCategory", back_populates="category")
+    landmarks = relationship("Landmark", secondary="landmark_categories", back_populates="categories")
 
-    # Access to the actual Landmark objects
-    landmark_list = relationship("Landmark", secondary="landmark_categories", back_populates="categories")
 
     def __repr__(self):
         return f"<Category(id={self.id}, name='{self.name}')>"

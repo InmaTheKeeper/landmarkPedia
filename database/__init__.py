@@ -11,4 +11,4 @@ from .photo import Photo
 
 engine = create_engine("postgresql+psycopg2://postgres@localhost:5432/postgres")
 Session = sessionmaker(engine)
-Base.metadata.create_all()
+Base.metadata.create_all(engine)
