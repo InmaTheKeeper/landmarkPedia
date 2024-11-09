@@ -2,7 +2,6 @@ from sqlalchemy.orm import sessionmaker
 from sqlalchemy import create_engine
 from .base import Base
 
-from .address import Address
 from .category import Category
 from .historical_reference import HistoricalReference
 from .landmark import Landmark

@@ -1,5 +1,5 @@
 from .base import Base
-from sqlalchemy import Column, Integer, Text, VARCHAR, ForeignKey
+from sqlalchemy import Column, Integer, Text, VARCHAR, Float
 from sqlalchemy.orm import relationship
 
 
@@ -7,13 +7,14 @@ class Landmark(Base):
     __tablename__ = 'landmarks'
 
     id = Column(Integer, primary_key=True)
-    address_id = Column(Integer, ForeignKey("addresses.id"), unique=True, nullable=True)
+    address = Column(Text, nullable=True)
     name = Column(VARCHAR, nullable=False)
     descr = Column(Text, nullable=False)
     history = Column(Text, nullable=False)
+    latitude = Column(Float, nullable=True)
+    longtitude = Column(Float, nullable=True)
 
     # Relationships
-    address = relationship("Address", back_populates="landmark")
     photos = relationship("Photo", backref="landmark")
     history_refs = relationship("HistoricalReference", backref="landmark")
 
