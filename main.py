@@ -1,4 +1,5 @@
 import database as db
+import queryUtils as qu
 
 
 def fill_landmarks():
@@ -34,10 +35,8 @@ def fill_landmarks():
 if __name__ == '__main__':
     session = db.Session()
     try:
-        # fill_landmarks()
-        lands=session.query(db.Landmark).all()
-        print(len(lands))
-        print(lands)
+        # insert your query here
+        pass
     except Exception as e:
         session.rollback()
         print("An error occurred", e)
